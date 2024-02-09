@@ -165,7 +165,7 @@ class PlayList {
      *  If start is negative or greater than size - 1, returns -1.
      */
     private int minIndex(int start) {
-        if(start<0 || start>size)
+        if(start<0 || start>size-1)
         return -1;
         int min=300000;
         int minI=maxSize;
