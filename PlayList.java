@@ -99,6 +99,7 @@ class PlayList {
             tracks[k]=lastTrack;
             lastTrack=temp;
         }
+        size++;
         return true;
 
     }
