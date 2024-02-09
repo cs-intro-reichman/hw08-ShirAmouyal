@@ -169,7 +169,7 @@ class PlayList {
         return -1;
         int min=100;
         int minI=maxSize;
-        for(int i=start;i<size;i++){
+        for(int i=start+1;i<size;i++){
             if(tracks[i].getDuration()<min){
                 min=tracks[i].getDuration();
                 minI=i;
@@ -183,7 +183,7 @@ class PlayList {
     public String titleOfShortestTrack() {
         if(size==0){return null;}
         int minI=minIndex(0);
-        return tracks[minIndex(0)].getTitle();
+        return tracks[minI].getTitle();
     }
 
     /** Sorts this list by increasing duration order: Tracks with shorter
@@ -191,10 +191,11 @@ class PlayList {
      *  rather than returning a new, sorted playlist, the method sorts
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
-      Track[] nTracks=new Track[size];
-      for(int i=0;i<size;i++){
-        nTracks[i]=tracks[minIndex(0)];
-        remove(minIndex(0));
+      Track temp;
+      for(int i=0;i<size-1;i++){
+        temp=tracks[minIndex(i)];
+        tracks[minIndex(i)]=tracks[i];
+        tracks[i]=temp; 
        
       }
         
