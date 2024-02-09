@@ -167,11 +167,11 @@ class PlayList {
     private int minIndex(int start) {
         if(start<0 || start>size-1)
         return -1;
-        int min=tracks[start].getDuration();
+        int min=300000;
         int minI=maxSize;
-        for(int i=start+1;i<size-1;i++){
-            if(tracks[i].getDuration()<min){
-                min=tracks[i].getDuration();
+        for(int i=start+1;i<size;i++){
+            if(this.tracks[i].getDuration()<min){
+                min=this.tracks[i].getDuration();
                 minI=i;
             }
         }
